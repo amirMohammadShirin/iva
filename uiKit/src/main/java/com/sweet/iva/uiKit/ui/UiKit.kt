@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -322,6 +323,14 @@ fun AppUiKit() {
                                 onClick = { selectedItem = index },
                             )
                         }
+                    }
+                }
+                item{
+                    Text(text = "متن نمونه")
+                }
+                item{
+                    ProvideTextStyle(value = MaterialTheme.typography.displayLarge) {
+                        Text(text = "متن نمونه")
                     }
                 }
             }

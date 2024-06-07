@@ -146,7 +146,7 @@ fun AppTheme(
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
-            typography = Mark2Typography,
+            typography = IvaTypography,
             content = content
         )
     }
