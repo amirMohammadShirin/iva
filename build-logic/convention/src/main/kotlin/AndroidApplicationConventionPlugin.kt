@@ -17,10 +17,10 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.gradle.BaseExtension
-import com.sweet.arch.configureBadgingTasks
-import com.sweet.arch.configureGradleManagedDevices
-import com.sweet.arch.configureKotlinAndroid
-import com.sweet.arch.configurePrintApksTask
+import com.sweet.iva.configureBadgingTasks
+import com.sweet.iva.configureGradleManagedDevices
+import com.sweet.iva.configureKotlinAndroid
+import com.sweet.iva.configurePrintApksTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

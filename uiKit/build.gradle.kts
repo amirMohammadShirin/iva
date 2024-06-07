@@ -1,5 +1,5 @@
-import com.sweet.arch.FlavorDimension
-import com.sweet.arch.MarkFlavor
+import com.sweet.iva.FlavorDimension
+import com.sweet.iva.IvaFlavor
 
 
 plugins {
@@ -9,12 +9,12 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.sweet.arch.uiKit"
+        applicationId = "com.sweet.iva.uiKit"
         versionCode = 1
         versionName = "0.0.1"
         minSdk = 26
 
-        missingDimensionStrategy(FlavorDimension.contentType.name, MarkFlavor.demo.name)
+        missingDimensionStrategy(FlavorDimension.contentType.name, IvaFlavor.demo.name)
 
     }
     packaging {

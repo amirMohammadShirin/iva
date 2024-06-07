@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sweet.arch.core.analytics"
+    namespace = "com.sweet.iva.core.analytics"
 }
 
 dependencies {

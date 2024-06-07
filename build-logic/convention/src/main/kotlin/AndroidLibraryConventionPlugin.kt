@@ -1,11 +1,11 @@
 
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import com.sweet.arch.configureFlavors
-import com.sweet.arch.configureGradleManagedDevices
-import com.sweet.arch.configureKotlinAndroid
-import com.sweet.arch.configurePrintApksTask
-import com.sweet.arch.disableUnnecessaryAndroidTests
+import com.sweet.iva.configureFlavors
+import com.sweet.iva.configureGradleManagedDevices
+import com.sweet.iva.configureKotlinAndroid
+import com.sweet.iva.configurePrintApksTask
+import com.sweet.iva.disableUnnecessaryAndroidTests
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

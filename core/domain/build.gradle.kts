@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sweet.arch.core.domain"
+    namespace = "com.sweet.iva.core.domain"
 }
 
 dependencies {

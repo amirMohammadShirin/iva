@@ -13,7 +13,7 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.sweet.arch"
+        applicationId = "com.sweet.iva"
         versionCode = 1
         versionName = "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
@@ -62,7 +62,7 @@ android {
         }
     }
 
-    namespace = "com.sweet.arch"
+    namespace = "com.sweet.iva"
 }
 
 dependencies {

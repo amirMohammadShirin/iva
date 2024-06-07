@@ -20,7 +20,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sweet.task.core.designsystem"
+    namespace = "com.sweet.iva.core.designsystem"
 }
 
 dependencies {

@@ -4,13 +4,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="iva Ui Kit"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarkUiKit">
 
         <activity
-            android:name="com.sweet.arch.uiKit.UiKitActivity"
+            android:name="com.sweet.iva.uiKit.UiKitActivity"
             android:exported="true">
 
             <intent-filter>
