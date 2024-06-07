@@ -20,28 +20,28 @@ import org.jetbrains.annotations.VisibleForTesting
  */
 @VisibleForTesting
 val LightDefaultColorScheme = lightColorScheme(
-    primary = BlueRoyal600,
-    onPrimary = White,
-    primaryContainer = BlueRoyal600,
-    onPrimaryContainer = BlueRoyal50,
+    primary = Yellow500,
+    onPrimary = Black,
+    primaryContainer = Yellow500,
+    onPrimaryContainer = Black,
     inversePrimary = BlueRoyal50,
-    secondary = Carrot600,
+    secondary = BlueRoyal500,
     onSecondary = White,
-    secondaryContainer = Carrot600,
-    onSecondaryContainer = Carrot50,
-    tertiary = PastelGreen600,
-    onTertiary = White,
-    tertiaryContainer = PastelGreen600,
-    onTertiaryContainer = PastelGreen50,
+    secondaryContainer = BlueRoyal500,
+    onSecondaryContainer = White,
+    tertiary = Gray500,
+    onTertiary = Gray800,
+    tertiaryContainer = Gray500,
+    onTertiaryContainer = Gray800,
     error = Error,
     onError = White,
     errorContainer = ErrorContainer,
     onErrorContainer = Red50,
     background = White,
     onBackground = Black,
-    surface = Metal50,
-    onSurface = BlueRoyal300,
-    outline = Metal200,
+    surface = Gray500,
+    onSurface = Gray800,
+    outline = Gray600,
 )
 
 /**
@@ -146,7 +146,7 @@ fun AppTheme(
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
-            typography = Mark2Typography,
+            typography = IvaTypography,
             content = content
         )
     }

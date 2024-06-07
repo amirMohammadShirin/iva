@@ -23,7 +23,7 @@ fun AppTab(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    text: @Composable () -> Unit
+    title: String
 ) {
     Tab(
         selected = selected,
@@ -36,7 +36,10 @@ fun AppTab(
                 value = style,
                 content = {
                     Box(modifier = modifier.padding(top = AppTabDefaults.TabTopPadding)) {
-                        text()
+                        Text(
+                            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
+                            text = title
+                        )
                     }
                 }
             )
@@ -54,8 +57,6 @@ fun AppTabRow(
     TabRow(
         selectedTabIndex = selectedTabIndex,
         modifier = modifier,
-        contentColor = MaterialTheme.colorScheme.primary,
-        containerColor = Color.Transparent,
         indicator = { tabPosition ->
             TabRowDefaults.Indicator(
                 modifier = Modifier.tabIndicatorOffset(tabPosition[selectedTabIndex]),
@@ -78,9 +79,7 @@ fun TabsPreview() {
                 AppTab(
                     selected = index == 0,
                     onClick = { },
-                    text = {
-                        Text(text = title)
-                    }
+                    title = title
                 )
             }
         }

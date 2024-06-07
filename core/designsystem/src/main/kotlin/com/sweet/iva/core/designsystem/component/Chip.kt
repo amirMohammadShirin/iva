@@ -48,11 +48,9 @@ fun AppFilterChip(
         border = FilterChipDefaults.filterChipBorder(
             selected = selected,
             enabled = enable,
-            borderColor = MaterialTheme.colorScheme.onBackground,
+            borderColor = MaterialTheme.colorScheme.outline,
             selectedBorderColor = MaterialTheme.colorScheme.onBackground,
-            disabledBorderColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = AppChipDefaults.DisabledChipContentAlpha
-            ),
+            disabledBorderColor = MaterialTheme.colorScheme.outline,
             selectedBorderWidth = AppChipDefaults.ChipBorderWidth
         ),
         colors = FilterChipDefaults.filterChipColors(
@@ -61,12 +59,10 @@ fun AppFilterChip(
             disabledContainerColor = if (selected) {
                 MaterialTheme.colorScheme.onBackground
             } else Color.Transparent,
-            disabledLabelColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = AppChipDefaults.DisabledChipContainerAlpha
-            ),
+            disabledLabelColor = MaterialTheme.colorScheme.onBackground,
             selectedContainerColor = MaterialTheme.colorScheme.primary,
-            selectedLabelColor = MaterialTheme.colorScheme.primaryContainer,
-            selectedLeadingIconColor = MaterialTheme.colorScheme.primaryContainer
+            selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+            selectedLeadingIconColor = MaterialTheme.colorScheme.onPrimary
         )
     )
 
