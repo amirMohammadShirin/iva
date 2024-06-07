@@ -293,7 +293,7 @@ fun AppUiKit() {
                             AppTab(
                                 selected = selectedTabIndex == index,
                                 onClick = { selectedTabIndex = index },
-                                text = { Text(text = title) },
+                                title = title,
                             )
                         }
                     }
