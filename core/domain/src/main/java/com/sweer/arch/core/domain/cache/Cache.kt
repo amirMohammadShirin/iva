@@ -1,6 +1,6 @@
-package com.sweer.arch.core.domain.cache
+package com.sweer.iva.core.domain.cache
 
-import com.sweer.arch.core.domain.enum.CacheKey
+import com.sweer.iva.core.domain.enum.CacheKey
 
 
 interface Cache {

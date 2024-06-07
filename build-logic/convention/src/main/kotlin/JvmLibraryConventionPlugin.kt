@@ -1,4 +1,4 @@
-import com.sweet.arch.configureKotlinJvm
+import com.sweet.iva.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

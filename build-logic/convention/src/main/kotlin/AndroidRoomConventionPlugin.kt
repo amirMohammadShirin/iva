@@ -1,5 +1,5 @@
 import com.google.devtools.ksp.gradle.KspExtension
-import com.sweet.arch.libs
+import com.sweet.iva.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.InputDirectory

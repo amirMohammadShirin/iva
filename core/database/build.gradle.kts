@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sweet.arch.core.database"
+    namespace = "com.sweet.iva.core.database"
 }
 
 dependencies {

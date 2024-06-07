@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sweet.arch.core.cache"
+    namespace = "com.sweet.iva.core.cache"
 }
 
 dependencies {

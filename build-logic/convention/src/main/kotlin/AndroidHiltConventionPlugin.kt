@@ -1,4 +1,4 @@
-import com.sweet.arch.libs
+import com.sweet.iva.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

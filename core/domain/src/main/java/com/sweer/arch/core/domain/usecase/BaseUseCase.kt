@@ -1,4 +1,4 @@
-package com.sweer.arch.core.domain.usecase
+package com.sweer.iva.core.domain.usecase
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext

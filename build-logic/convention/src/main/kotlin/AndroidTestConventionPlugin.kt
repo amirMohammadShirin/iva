@@ -1,6 +1,6 @@
 import com.android.build.gradle.TestExtension
-import com.sweet.arch.configureGradleManagedDevices
-import com.sweet.arch.configureKotlinAndroid
+import com.sweet.iva.configureGradleManagedDevices
+import com.sweet.iva.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

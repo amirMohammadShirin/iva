@@ -10,7 +10,7 @@
         android:theme="@style/Theme.MarkUiKit">
 
         <activity
-            android:name="com.sweet.arch.uiKit.UiKitActivity"
+            android:name="com.sweet.iva.uiKit.UiKitActivity"
             android:exported="true">
 
             <intent-filter>
