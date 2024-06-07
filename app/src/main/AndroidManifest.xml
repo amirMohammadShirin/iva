@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <application
+        android:name=".application.Application"
+        android:label="sweet task"
+        android:icon="@mipmap/ic_launcher_foreground"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.Mark.Splash" >
+        <activity
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:name=".main.view.MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
