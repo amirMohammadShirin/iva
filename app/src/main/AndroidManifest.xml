@@ -4,7 +4,7 @@
     <application
         android:name="com.sweet.iva.application.Application"
         android:label="iva"
-        android:icon="@mipmap/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher_round"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.Mark.Splash" >
         <activity

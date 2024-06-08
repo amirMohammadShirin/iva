@@ -13,6 +13,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -53,6 +54,24 @@ fun AppButton(
         contentPadding = contentPadding,
         content = content
     )
+}
+
+@Composable
+fun AppPrimaryButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    text: String
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled
+    ) {
+        ProvideTextStyle(value = MaterialTheme.typography.bodyMedium) {
+            Text(text)
+        }
+    }
 }
 
 
@@ -349,6 +368,17 @@ fun AppIconButtonPreview() {
                 icon = AppIcons.AddBorder
             )
         }
+    }
+}
+
+@ThemePreviews
+@Composable
+fun AppPrimaryButtonPreview() {
+    AppTheme {
+        AppPrimaryButton(
+            onClick = {},
+            text = "ورود"
+        )
     }
 }
 
