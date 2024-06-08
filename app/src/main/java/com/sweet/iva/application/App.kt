@@ -37,18 +37,8 @@ fun App(
 
         Scaffold(
             modifier = Modifier,
-            topBar = {
-                Toolbar(topLevelDestination = appState.currentTopLevelDestination)
-            },
-            bottomBar = {
-                NavigationBar(
-                    destinations = appState.topLevelDestinations,
-                    currentTopLevelDestination = appState.currentTopLevelDestination,
-                    onItemClicked = { topLevelDestination ->
-                        appState.navigateToTopLevelDestination(topLevelDestination)
-                    }
-                )
-            },
+            topBar = {},
+            bottomBar = {},
             containerColor = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground,
             snackbarHost = { SnackbarHost(snackBarHostState) },

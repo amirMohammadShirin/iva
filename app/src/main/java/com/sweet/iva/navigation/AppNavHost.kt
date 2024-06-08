@@ -6,12 +6,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import com.sweet.iva.application.AppState
 import com.sweet.iva.core.ui.helper.LocalNavController
+import com.sweet.iva.core.ui.navigation.ApplicationRoutes
+import com.sweet.iva.feature.intro.introGraph
 
 @Composable
 fun AppNavHost(
     appState: AppState,
     modifier: Modifier = Modifier,
-    startDestination: String = ""
+    startDestination: String = ApplicationRoutes.introGraphRoute
 ) {
     CompositionLocalProvider(LocalNavController provides appState.navController) {
         NavHost(
@@ -19,6 +21,8 @@ fun AppNavHost(
             startDestination = startDestination,
             modifier = modifier
         ) {
+
+            introGraph()
 
         }
     }
