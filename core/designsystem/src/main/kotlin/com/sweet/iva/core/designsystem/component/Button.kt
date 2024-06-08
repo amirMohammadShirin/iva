@@ -68,7 +68,7 @@ fun AppPrimaryButton(
         modifier = modifier,
         enabled = enabled
     ) {
-        ProvideTextStyle(value = MaterialTheme.typography.labelMedium) {
+        ProvideTextStyle(value = MaterialTheme.typography.bodyMedium) {
             Text(text)
         }
     }
