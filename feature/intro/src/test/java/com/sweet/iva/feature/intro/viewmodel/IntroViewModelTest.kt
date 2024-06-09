@@ -2,6 +2,7 @@ package com.sweet.iva.feature.intro.viewmodel
 
 import com.sweet.iva.core.common.dispatcher.DispatcherProvider
 import com.sweet.iva.core.test.rule.MainDispatcherRule
+import com.sweet.iva.core.ui.navigation.ApplicationRoutes
 import com.sweet.iva.feature.intro.model.IntroAction
 import io.mockk.coVerify
 import io.mockk.spyk
@@ -52,7 +53,7 @@ class IntroViewModelTest {
             advanceUntilIdle()
 
             coVerify {
-                viewModel.navigateToLogin()
+                viewModel.navigateTo(ApplicationRoutes.loginGraphRoute)
             }
 
         }

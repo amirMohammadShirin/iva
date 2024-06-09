@@ -1,6 +1,7 @@
 package com.sweet.iva.feature.login.phoneEntry.view
 
 import androidx.compose.runtime.Composable
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.sweet.iva.core.ui.navigation.ApplicationRoutes
 import com.sweet.iva.core.ui.view.BaseScreen
@@ -22,7 +23,12 @@ class PhoneEntryScreen : BaseScreen<PhoneEntryUiModel, PhoneEntryAction, PhoneEn
     @Composable
     override fun Content(state: PhoneEntryUiModel) {
 
+        ConstraintLayout {
 
+            val (toolbar) = createRefs()
+
+
+        }
 
     }
 

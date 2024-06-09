@@ -80,10 +80,12 @@ fun NavigationBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar(modifier: Modifier = Modifier, topLevelDestination: TopLevelDestination) {
-    TopAppBar(
-        modifier = modifier,
-        title = topLevelDestination.title
-    )
+    AppTheme {
+        TopAppBar(
+            modifier = modifier,
+            title = topLevelDestination.title
+        )
+    }
 }
 
 @ThemePreviews

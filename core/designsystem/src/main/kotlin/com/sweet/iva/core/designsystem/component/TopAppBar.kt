@@ -1,6 +1,10 @@
 package com.sweet.iva.core.designsystem.component
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,12 +18,18 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.sweet.iva.core.designsystem.R
 import com.sweet.iva.core.designsystem.icon.AppIcons
 import com.sweet.iva.core.designsystem.theme.AppTheme
+import com.sweet.iva.core.designsystem.theme.dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,11 +42,11 @@ fun TopAppBar(
     actionIconContentDescription: String = "actionIconContentDescription",
     modifier: Modifier = Modifier,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-        containerColor = MaterialTheme.colorScheme.primary,
-        actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
-        titleContentColor = MaterialTheme.colorScheme.onPrimary,
-        navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-        scrolledContainerColor = MaterialTheme.colorScheme.onPrimary
+        containerColor = MaterialTheme.colorScheme.surface,
+        actionIconContentColor = MaterialTheme.colorScheme.onSurface,
+        titleContentColor = MaterialTheme.colorScheme.onBackground,
+        navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+        scrolledContainerColor = MaterialTheme.colorScheme.onSurface
     ),
     onNavigationClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
@@ -80,6 +90,77 @@ fun TopAppBar(
 
 }
 
+@Composable
+fun AppToolbar(
+    modifier: Modifier,
+    toolbarTitle: String,
+    leftIcon: Int,
+    rightIcon: Int
+) {
+
+    ConstraintLayout(
+        modifier = modifier
+            .clip(RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp))
+            .background(
+                MaterialTheme.colorScheme.outline,
+                RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp),
+            )
+    ) {
+
+        val (titleRef, leftIconRef, rightIconRef) = createRefs()
+
+        ProvideTextStyle(value = MaterialTheme.typography.bodyLarge) {
+            Text(
+                textAlign = TextAlign.Center,
+                modifier = Modifier.constrainAs(titleRef) {
+                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
+                    start.linkTo(leftIconRef.end, MaterialTheme.dimens.largeGap)
+                    end.linkTo(rightIconRef.start, MaterialTheme.dimens.largeGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
+                    width = Dimension.fillToConstraints
+                },
+                text = toolbarTitle
+            )
+        }
+
+        Image(
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
+            modifier = Modifier
+                .constrainAs(leftIconRef) {
+                    start.linkTo(parent.start, MaterialTheme.dimens.defaultGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
+                    end.linkTo(titleRef.start, MaterialTheme.dimens.largeGap)
+                }
+                .size(
+                    40.dp,
+                    40.dp
+                ),
+            painter = painterResource(id = leftIcon),
+            contentDescription = "left icon"
+        )
+        Image(
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
+            modifier = Modifier
+                .constrainAs(rightIconRef) {
+                    end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
+                    start.linkTo(titleRef.end, MaterialTheme.dimens.largeGap)
+                }
+                .size(
+                    40.dp,
+                    40.dp
+                ),
+            painter = painterResource(id = rightIcon),
+            contentDescription = "right icon"
+        )
+
+
+    }
+
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @ThemePreviews
 @Composable
@@ -91,6 +172,19 @@ private fun AppTopAppBarPreview() {
             navigationIconContentDescription = "Navigation icon",
             actionIcon = AppIcons.MoreVert,
             actionIconContentDescription = "Action icon",
+        )
+    }
+}
+
+@ThemePreviews
+@Composable
+private fun AppToolbarPreview() {
+    AppTheme {
+        AppToolbar(
+            modifier = Modifier.fillMaxWidth(),
+            toolbarTitle = "ایوا",
+            R.drawable.ic_iva,
+            R.drawable.ic_iva
         )
     }
 }
