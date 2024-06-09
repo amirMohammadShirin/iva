@@ -17,7 +17,7 @@ val phoneEntryScreen = PhoneEntryScreen()
 fun NavGraphBuilder.loginGraph() {
 
     navigation(
-        startDestination = ApplicationRoutes.loginEntryScreenRoute,
+        startDestination = ApplicationRoutes.phoneEntryScreenRoute,
         route = ApplicationRoutes.loginGraphRoute
     ) {
         registerDestination(

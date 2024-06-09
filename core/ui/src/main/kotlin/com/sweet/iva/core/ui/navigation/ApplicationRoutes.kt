@@ -12,7 +12,7 @@ object ApplicationRoutes {
 
     //region Screens
     const val introScreenRoute = "intro_screen_route"
-    const val loginEntryScreenRoute = "login_entry_screen_route"
+    const val phoneEntryScreenRoute = "login_entry_screen_route"
     //endregion
 
 }

@@ -14,13 +14,15 @@ import com.sweet.iva.feature.login.phoneEntry.viewmodel.PhoneEntryViewModel
  */
 class PhoneEntryScreen : BaseScreen<PhoneEntryUiModel, PhoneEntryAction, PhoneEntryEvent>(
     name = "ورود",
-    route = ApplicationRoutes.loginEntryScreenRoute
+    route = ApplicationRoutes.phoneEntryScreenRoute
 ) {
     @Composable
     override fun viewModel(): PhoneEntryViewModel = hiltViewModel()
 
     @Composable
     override fun Content(state: PhoneEntryUiModel) {
+
+
 
     }
 
