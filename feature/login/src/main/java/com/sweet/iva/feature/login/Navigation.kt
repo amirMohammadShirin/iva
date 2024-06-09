@@ -21,9 +21,7 @@ fun NavGraphBuilder.loginGraph() {
         route = ApplicationRoutes.loginGraphRoute
     ) {
         registerDestination(
-            phoneEntryScreen,
-            enterTransition = NavigationAnimation.slideInFromRight,
-            exitTransition = NavigationAnimation.slideOutFromLeft
+            phoneEntryScreen
         )
     }
 

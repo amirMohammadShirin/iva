@@ -37,7 +37,7 @@ val LightDefaultColorScheme = lightColorScheme(
     onError = White,
     errorContainer = ErrorContainer,
     onErrorContainer = Red50,
-    background = White,
+    background = Gray500,
     onBackground = Black,
     surface = Gray500,
     onSurface = Gray800,
@@ -125,7 +125,7 @@ fun AppTheme(
     }
 
     val defaultBackgroundTheme = BackgroundTheme(
-        color = Color.White,
+        color = MaterialTheme.colorScheme.background,
         tonalElevation = 2.dp
     )
     val backgroundTheme = when {

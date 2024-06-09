@@ -4,10 +4,12 @@
 
     <!-- Allows us to override night specific attributes in the
          values-night folder. -->
-    <style name="NightAdjusted.Theme.Mark" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="NightAdjusted.Theme.Mark" parent="Theme.Material3.DayNight" />
 
     <!-- The final theme we use -->
-    <style name="Theme.Mark" parent="NightAdjusted.Theme.Mark" />
+    <style name="Theme.Mark" parent="NightAdjusted.Theme.Mark">
+        <item name="android:statusBarColor">#fff</item>
+    </style>
 
     <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>

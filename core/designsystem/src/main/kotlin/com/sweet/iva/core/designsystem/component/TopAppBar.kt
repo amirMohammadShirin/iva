@@ -29,6 +29,7 @@ import androidx.constraintlayout.compose.Dimension
 import com.sweet.iva.core.designsystem.R
 import com.sweet.iva.core.designsystem.icon.AppIcons
 import com.sweet.iva.core.designsystem.theme.AppTheme
+import com.sweet.iva.core.designsystem.theme.Gray900
 import com.sweet.iva.core.designsystem.theme.dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -102,7 +103,7 @@ fun AppToolbar(
         modifier = modifier
             .clip(RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp))
             .background(
-                MaterialTheme.colorScheme.outline,
+                Gray900,
                 RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp),
             )
     ) {
@@ -113,10 +114,10 @@ fun AppToolbar(
             Text(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.constrainAs(titleRef) {
-                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
-                    start.linkTo(leftIconRef.end, MaterialTheme.dimens.largeGap)
-                    end.linkTo(rightIconRef.start, MaterialTheme.dimens.largeGap)
-                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.smallGap)
+                    start.linkTo(leftIconRef.end, MaterialTheme.dimens.smallGap)
+                    end.linkTo(rightIconRef.start, MaterialTheme.dimens.smallGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.smallGap)
                     width = Dimension.fillToConstraints
                 },
                 text = toolbarTitle
@@ -124,33 +125,31 @@ fun AppToolbar(
         }
 
         Image(
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
             modifier = Modifier
                 .constrainAs(leftIconRef) {
                     start.linkTo(parent.start, MaterialTheme.dimens.defaultGap)
-                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
-                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
-                    end.linkTo(titleRef.start, MaterialTheme.dimens.largeGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
+                    end.linkTo(titleRef.start, MaterialTheme.dimens.defaultGap)
                 }
                 .size(
-                    40.dp,
-                    40.dp
+                    30.dp,
+                    30.dp
                 ),
             painter = painterResource(id = leftIcon),
             contentDescription = "left icon"
         )
         Image(
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
             modifier = Modifier
                 .constrainAs(rightIconRef) {
                     end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
-                    top.linkTo(parent.top, MaterialTheme.dimens.largeGap)
-                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.largeGap)
-                    start.linkTo(titleRef.end, MaterialTheme.dimens.largeGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
+                    start.linkTo(titleRef.end, MaterialTheme.dimens.defaultGap)
                 }
                 .size(
-                    40.dp,
-                    40.dp
+                    30.dp,
+                    30.dp
                 ),
             painter = painterResource(id = rightIcon),
             contentDescription = "right icon"
