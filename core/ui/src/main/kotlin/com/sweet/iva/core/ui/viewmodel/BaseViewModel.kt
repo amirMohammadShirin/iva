@@ -6,6 +6,7 @@ import com.sweet.iva.core.ui.entity.DisplayedError
 import com.sweet.iva.core.ui.model.IAction
 import com.sweet.iva.core.ui.model.IEvent
 import com.sweet.iva.core.ui.navigation.NavigationCommand
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +21,10 @@ import kotlinx.coroutines.launch
 
 
 abstract class BaseViewModel<State, Action : IAction, Event : IEvent>(
-    val initialState: State
+    val initialState: State,
+    val ioDispatcher: CoroutineDispatcher,
+    val mainDispatcher: CoroutineDispatcher,
+    val defaultDispatcher: CoroutineDispatcher,
 ) : ViewModel() {
 
     private val _uiStateFlow = MutableStateFlow(initialState)
@@ -46,13 +50,13 @@ abstract class BaseViewModel<State, Action : IAction, Event : IEvent>(
     abstract fun handleAction(action: Action)
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(ioDispatcher) {
             _uiActionFlow.collect(this@BaseViewModel::handleAction)
         }
     }
 
     fun process(action: Action) {
-        viewModelScope.launch{
+        viewModelScope.launch(ioDispatcher) {
             _uiActionFlow.emit(action)
         }
     }
@@ -65,16 +69,23 @@ abstract class BaseViewModel<State, Action : IAction, Event : IEvent>(
     }
 
     fun sendEvent(event: IEvent) {
-        viewModelScope.launch {
+        viewModelScope.launch(ioDispatcher) {
             _uiEventFlow.emit(event)
         }
     }
 
     fun navigateTo(route: String) {
-        _navigationFlow.tryEmit(
-            NavigationCommand.ToScreen(route)
-        )
+        viewModelScope.launch(ioDispatcher) {
+            _navigationFlow.emit(
+                NavigationCommand.ToScreen(route)
+            )
+        }
     }
 
+    fun navigateBack() {
+        viewModelScope.launch(ioDispatcher) {
+            _navigationFlow.emit(NavigationCommand.Back)
+        }
+    }
 
 }

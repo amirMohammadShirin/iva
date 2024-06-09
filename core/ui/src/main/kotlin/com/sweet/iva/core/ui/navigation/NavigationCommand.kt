@@ -13,5 +13,12 @@ sealed class NavigationCommand(
         }
     }
 
+    data object Back : NavigationCommand("") {
+        override fun navigate(navController: NavController) {
+            navController.popBackStack()
+        }
+
+    }
+
 }
 

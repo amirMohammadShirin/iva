@@ -81,11 +81,12 @@ val Raspberry700 = Color(0XFF900F5C)
 val Raspberry800 = Color(0XFF770955)
 val Raspberry900 = Color(0XFF5F0743)
 
-val Yellow500 = Color(0XFFFCB600)
+    val Yellow500 = Color(0XFFFCB600)
 
 val Gray500= Color(0XFFEDEDED)
 val Gray600= Color(0XFFC9C9C9)
 val Gray800= Color(0XFF858585)
+val Gray900= Color(0XFF525154)
 
 val White = Color(0XFFFFFFFF)
 val Black = Color(0XFF000000)

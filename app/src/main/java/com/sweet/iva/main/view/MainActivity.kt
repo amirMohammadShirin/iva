@@ -64,18 +64,6 @@ internal class MainActivity : ComponentActivity() {
         if (!uiState.loading) {
             val darkTheme = shouldUserDarkTheme(uiState)
 
-            DisposableEffect(key1 = darkTheme) {
-                enableEdgeToEdge(statusBarStyle = SystemBarStyle.auto(
-                    Color.TRANSPARENT,
-                    Color.TRANSPARENT,
-                ) {
-                    darkTheme
-                }, navigationBarStyle = SystemBarStyle.auto(
-                    lightScrim = lightScrim, darkScrim = darkScrim
-                ) { darkTheme })
-                onDispose { }
-            }
-
             AppTheme(
                 darkTheme = darkTheme,
                 androidTheme = shouldUseAndroidTheme(uiState),
