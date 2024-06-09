@@ -32,7 +32,7 @@ class IntroViewModel @Inject constructor(
         }
     }
 
-    fun navigateToLogin() {
+    private fun navigateToLogin() {
         navigateTo(ApplicationRoutes.loginGraphRoute)
     }
 }

@@ -60,6 +60,8 @@ class IntroScreen : BaseScreen<IntroUiModel, IntroAction, IntroEvent>(
     @Composable
     override fun Content(state: IntroUiModel) {
 
+        val viewModel = viewModel()
+
         ConstraintLayout(
             modifier = Modifier
                 .fillMaxSize()
@@ -95,7 +97,7 @@ class IntroScreen : BaseScreen<IntroUiModel, IntroAction, IntroEvent>(
                     .constrainAs(indicator) {
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)
-                        bottom.linkTo(btnEnter.top,MaterialTheme.dimens.defaultGap)
+                        bottom.linkTo(btnEnter.top, MaterialTheme.dimens.defaultGap)
                     },
                 itemCount = pagerState.pageCount,
                 selectedIndex = pagerState.settledPage
@@ -109,7 +111,9 @@ class IntroScreen : BaseScreen<IntroUiModel, IntroAction, IntroEvent>(
                         end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
                         width = Dimension.fillToConstraints
                     },
-                onClick = {},
+                onClick = {
+                    viewModel.process(IntroAction.EntryButtonClicked)
+                },
                 text = "ورود"
             )
 
