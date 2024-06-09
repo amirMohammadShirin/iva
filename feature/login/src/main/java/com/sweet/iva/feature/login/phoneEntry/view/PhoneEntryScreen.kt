@@ -53,7 +53,9 @@ class PhoneEntryScreen : BaseScreen<PhoneEntryUiModel, PhoneEntryAction, PhoneEn
                     .fillMaxWidth(),
                 toolbarTitle = "ایوا",
                 leftIcon = R.drawable.ic_arrow_left,
-                rightIcon = R.drawable.iv_iva_with_text
+                onLeftIconClicked = {
+                    
+                }
             )
 
             Spacer(

@@ -3,6 +3,8 @@ package com.sweet.iva.core.designsystem.component
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,7 +20,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -29,7 +30,6 @@ import androidx.constraintlayout.compose.Dimension
 import com.sweet.iva.core.designsystem.R
 import com.sweet.iva.core.designsystem.icon.AppIcons
 import com.sweet.iva.core.designsystem.theme.AppTheme
-import com.sweet.iva.core.designsystem.theme.Gray900
 import com.sweet.iva.core.designsystem.theme.dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -95,15 +95,16 @@ fun TopAppBar(
 fun AppToolbar(
     modifier: Modifier,
     toolbarTitle: String,
+    onLeftIconClicked: () -> Unit,
     leftIcon: Int,
-    rightIcon: Int
+    rightIcon: Int? = null
 ) {
 
     ConstraintLayout(
         modifier = modifier
             .clip(RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp))
             .background(
-                Gray900,
+                MaterialTheme.colorScheme.surface,
                 RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp),
             )
     ) {
@@ -114,10 +115,10 @@ fun AppToolbar(
             Text(
                 textAlign = TextAlign.Center,
                 modifier = Modifier.constrainAs(titleRef) {
-                    top.linkTo(parent.top, MaterialTheme.dimens.smallGap)
-                    start.linkTo(leftIconRef.end, MaterialTheme.dimens.smallGap)
-                    end.linkTo(rightIconRef.start, MaterialTheme.dimens.smallGap)
-                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.smallGap)
+                    top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
+                    start.linkTo(leftIconRef.end, MaterialTheme.dimens.defaultGap)
+                    end.linkTo(rightIconRef.start, MaterialTheme.dimens.defaultGap)
+                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
                     width = Dimension.fillToConstraints
                 },
                 text = toolbarTitle
@@ -131,30 +132,56 @@ fun AppToolbar(
                     top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
                     bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
                     end.linkTo(titleRef.start, MaterialTheme.dimens.defaultGap)
+                    width = Dimension.wrapContent
+                    height = Dimension.wrapContent
                 }
                 .size(
                     30.dp,
                     30.dp
-                ),
+                )
+                .clickable {
+                    onLeftIconClicked.invoke()
+                },
             painter = painterResource(id = leftIcon),
             contentDescription = "left icon"
         )
-        Image(
-            modifier = Modifier
-                .constrainAs(rightIconRef) {
-                    end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
-                    top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
-                    bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
-                    start.linkTo(titleRef.end, MaterialTheme.dimens.defaultGap)
-                }
-                .size(
-                    30.dp,
-                    30.dp
-                ),
-            painter = painterResource(id = rightIcon),
-            contentDescription = "right icon"
-        )
 
+        rightIcon?.let {
+            Image(
+                modifier = Modifier
+                    .constrainAs(rightIconRef) {
+                        end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
+                        top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
+                        bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
+                        start.linkTo(titleRef.end, MaterialTheme.dimens.defaultGap)
+                        width = Dimension.wrapContent
+                        height = Dimension.wrapContent
+                    }
+                    .size(
+                        40.dp,
+                        40.dp
+                    ),
+                painter = painterResource(id = it),
+                contentDescription = "right icon"
+            )
+
+        } ?: run {
+            Box(
+                modifier = Modifier
+                    .constrainAs(rightIconRef) {
+                        end.linkTo(parent.end, MaterialTheme.dimens.defaultGap)
+                        top.linkTo(parent.top, MaterialTheme.dimens.defaultGap)
+                        bottom.linkTo(parent.bottom, MaterialTheme.dimens.defaultGap)
+                        start.linkTo(titleRef.end, MaterialTheme.dimens.defaultGap)
+                        width = Dimension.wrapContent
+                        height = Dimension.wrapContent
+                    }
+                    .size(
+                        40.dp,
+                        40.dp
+                    ),
+            )
+        }
 
     }
 
@@ -182,7 +209,7 @@ private fun AppToolbarPreview() {
         AppToolbar(
             modifier = Modifier.fillMaxWidth(),
             toolbarTitle = "ایوا",
-            R.drawable.ic_iva,
+            onLeftIconClicked = {},
             R.drawable.ic_iva
         )
     }
