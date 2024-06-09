@@ -1,3 +1,3 @@
-package com.sweer.iva.core.domain.model.exception
+package com.sweet.iva.core.domain.model.exception
 
 class BusinessException(exceptionMessage: String = "") : Exception(exceptionMessage)
