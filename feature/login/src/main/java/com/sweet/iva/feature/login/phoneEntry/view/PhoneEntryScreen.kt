@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -39,6 +38,8 @@ class PhoneEntryScreen : BaseScreen<PhoneEntryUiModel, PhoneEntryAction, PhoneEn
     @Composable
     override fun Content(state: PhoneEntryUiModel) {
 
+        val viewModel = viewModel()
+
         ConstraintLayout {
 
             val (toolbarRef, phoneNumberRef, topSpacerRef) = createRefs()
@@ -54,7 +55,7 @@ class PhoneEntryScreen : BaseScreen<PhoneEntryUiModel, PhoneEntryAction, PhoneEn
                 toolbarTitle = "ایوا",
                 leftIcon = R.drawable.ic_arrow_left,
                 onLeftIconClicked = {
-                    
+                    viewModel.navigateBack()
                 }
             )
 

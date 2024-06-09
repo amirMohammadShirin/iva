@@ -82,5 +82,10 @@ abstract class BaseViewModel<State, Action : IAction, Event : IEvent>(
         }
     }
 
+    fun navigateBack() {
+        viewModelScope.launch(ioDispatcher) {
+            _navigationFlow.emit(NavigationCommand.Back)
+        }
+    }
 
 }
