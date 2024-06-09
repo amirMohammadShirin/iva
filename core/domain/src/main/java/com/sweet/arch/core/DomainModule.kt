@@ -1,4 +1,4 @@
-package com.sweet.iva.core
+package com.sweet.arch.core
 
 import dagger.Module
 import dagger.Provides
