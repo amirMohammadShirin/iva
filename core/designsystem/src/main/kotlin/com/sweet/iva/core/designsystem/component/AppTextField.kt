@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDirection
 import androidx.compose.ui.unit.dp
 import com.sweet.iva.core.designsystem.icon.AppIcons
 import com.sweet.iva.core.designsystem.theme.AppTheme
@@ -41,7 +43,7 @@ fun AppTextField(
     singleLine: Boolean = true,
     enabled: Boolean = true,
     readonly: Boolean = false,
-    textStyle: TextStyle = MaterialTheme.typography.bodyMedium,
+    textStyle: TextStyle = LocalTextStyle.current,
     label: (@Composable () -> Unit)? = null,
     placeHolder: (@Composable () -> Unit)? = null,
     leadingIcon: (@Composable () -> Unit)? = null,
@@ -99,7 +101,7 @@ fun AppTextField(
         enabled = enabled,
         readOnly = readonly,
         textStyle = textStyle.copy(
-            textAlign = TextAlign.Center
+            textDirection = TextDirection.Rtl,
         ),
         label = label,
         placeholder = placeHolder,
@@ -124,7 +126,11 @@ fun AppTextField(
 
 @Composable
 fun AppTextFieldLabel(value: String) {
-    ProvideTextStyle(value = MaterialTheme.typography.bodyMedium) {
+    ProvideTextStyle(
+        value = MaterialTheme.typography.bodyMedium.copy(
+            textDirection = TextDirection.Rtl
+        )
+    ) {
         Text(
             textAlign = TextAlign.Center,
             text = value
@@ -134,9 +140,12 @@ fun AppTextFieldLabel(value: String) {
 
 @Composable
 fun AppTextFieldPlaceHolder(value: String) {
-    ProvideTextStyle(value = MaterialTheme.typography.bodyMedium) {
+    ProvideTextStyle(
+        value = MaterialTheme.typography.bodyMedium.copy(
+            textDirection = TextDirection.Rtl
+        )
+    ) {
         Text(
-            textAlign = TextAlign.Center,
             text = value
         )
     }
@@ -144,7 +153,11 @@ fun AppTextFieldPlaceHolder(value: String) {
 
 @Composable
 fun AppTextFieldSupportingText(value: String) {
-    ProvideTextStyle(value = MaterialTheme.typography.bodySmall) {
+    ProvideTextStyle(
+        value = MaterialTheme.typography.bodySmall.copy(
+            textDirection = TextDirection.Rtl
+        )
+    ) {
         Text(
             textAlign = TextAlign.Center,
             text = value
@@ -186,6 +199,30 @@ fun PreviewAppTextField() {
                 },
                 supportingText = {
                     AppTextFieldSupportingText(value = "supporting text")
+                }
+            )
+
+            AppTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = text,
+                onValueChange = { text = it },
+                label = {
+                    AppTextFieldLabel(value = "شماره تلفن")
+                },
+                placeHolder = {
+                    AppTextFieldPlaceHolder(value = "نمونه")
+                },
+                leadingIcon = {
+                    Icon(imageVector = AppIcons.Add, contentDescription = "leading icon")
+                },
+                trailingIcon = {
+                    Icon(
+                        imageVector = AppIcons.BookmarkBorder,
+                        contentDescription = "trailing icon"
+                    )
+                },
+                supportingText = {
+                    AppTextFieldSupportingText(value = "توضیحات بیشتر")
                 }
             )
 
@@ -238,6 +275,7 @@ fun PreviewAppTextField() {
                     AppTextFieldSupportingText(value = "supporting text")
                 }
             )
+
         }
     }
 }
